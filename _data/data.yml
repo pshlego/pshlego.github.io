@@ -89,16 +89,16 @@ experiences:
         time: 2022.09 ~ 2022.12
         company: Data Systems Laboratory (POSTECH)
         details: Participated in a study to identify the uncertainty of SQL based on user inquiries
-      
-      - role: Human mesh reconstruction Research
-        time: 2021.06 ~ 2022.06
-        company: Algorithmic Machine Intelligence Lab (POSTECH)
-        details: Participated in a study to reconstruct a person's 2D image into a 3D mesh
-      
+        
       - role: Intern
         time: 2022.06 ~ 2022.09
         company: Samsung Electronics Inc.
         details: Developed image processing algorithms
+        
+      - role: Human mesh reconstruction Research
+        time: 2021.06 ~ 2022.06
+        company: Algorithmic Machine Intelligence Lab (POSTECH)
+        details: Participated in a study to reconstruct a person's 2D image into a 3D mesh
 
       - role: Product Manager
         time: 2020.06 ~ 2020.09
