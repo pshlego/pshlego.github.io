@@ -113,11 +113,7 @@ projects:
       - title: Multimodal Question Answering
         link: 
         tagline:
-
-    assignments:
-      - title: Occlusion-Robust Full Body Estimation over Real World Images
-        link: 
-        tagline:
+        
 oss:
     title: OSS Contributions
     intro: 
