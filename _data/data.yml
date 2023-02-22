@@ -57,6 +57,7 @@ career-profile:
         I am a postgraduate student in POSTECH, undergoing a combined MS/PhD course in Data Systems Laboratory under Professor Wook-Shin Han.
         I aim to be a researcher.
         I am currently researching about Multimodal Question Answering.
+        
 education:
     title: Education
     info:
@@ -64,14 +65,17 @@ education:
         university: Data Science Laboratory, Pohang University of Science and Technology (POSTECH)
         time: 2023 ~
         details: Under supervision of Professor Wook-Shin Han
+        
       - degree: BSc in Electrical Engineering
         university: Pohang University of Science and Technology (POSTECH)
         time: 2019 - 2022
         details: Summa Cum Laude
+        
       - degree: High School
         university: Chungnam Science High School
         time: 2017 - 2018
         details: Early graduation
+        
 experiences:
     title: Experiences
     info:
@@ -104,6 +108,7 @@ experiences:
 projects:
     title: Projects
     intro: Projects I have been attending on since 2023
+    
     assignments:
       - title: Multimodal Question Answering
         link: 
