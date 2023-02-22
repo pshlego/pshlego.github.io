@@ -79,32 +79,27 @@ experiences:
       - role: Multimodal Question Answering Research
         time: 2023.01 ~
         company: Data Systems Laboratory (POSTECH)
-        details: |
-        Currently conducting research to generate answers to questions based on multimodal data
+        details: Currently conducting research to generate answers to questions based on multimodal data
       
       - role: Text to SQL Research
         time: 2022.09 ~ 2022.12
         company: Data Systems Laboratory (POSTECH)
-        details: |
-        Participated in a study to identify the uncertainty of SQL based on user inquiries
+        details: Participated in a study to identify the uncertainty of SQL based on user inquiries
       
       - role: Human mesh reconstruction Research
         time: 2021.06 ~ 2022.06
         company: Algorithmic Machine Intelligence Lab (POSTECH)
-        details: |
-        Participated in a study to reconstruct a person's 2D image into a 3D mesh
+        details: Participated in a study to reconstruct a person's 2D image into a 3D mesh
       
       - role: Intern
         time: 2022.06 ~ 2022.09
         company: Samsung Electronics Inc.
-        details: |
-        Developed image processing algorithms
+        details: Developed image processing algorithms
 
       - role: Product Manager
         time: 2020.06 ~ 2020.09
         company: Sellerhub
-        details: |
-        Served as a product manager at sellerhub, a startup that provides a platform for managing online shopping mall integrations
+        details: Served as a product manager at sellerhub, a startup that provides a platform for managing online shopping mall integrations
 
 projects:
     title: Projects
