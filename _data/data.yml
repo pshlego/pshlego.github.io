@@ -79,11 +79,15 @@ education:
 experiences:
     title: Experiences
     info:
-      
+      - role: Exploring Large Language Model for Text to SQL Translation
+        time: 2023.07 ~ 2023.10
+        company: Oracle Labs
+        details: Developed the process of fine-tuning a large language model for the nl2sql generation task
+
       - role: Multimodal Question Answering Research
-        time: 2023.01 ~
+        time: 2023.01 ~ 2023.03
         company: Data Systems Laboratory (POSTECH)
-        details: Currently conducting research to generate answers to questions based on multimodal data
+        details: Conducted research to generate answers to questions based on multimodal data
       
       - role: Text to SQL Research
         time: 2022.09 ~ 2022.12
