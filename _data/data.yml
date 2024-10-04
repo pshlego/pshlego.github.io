@@ -127,13 +127,11 @@ oss:
         tagline: 
 
 publications:
-    title: Publications
-    intro: Future publications I will submit will be listed afterwards
     papers:
-      - title: 
+      - title: KDD Cup Meta CRAG 2024 Technical Report: Three-step Question-Answering Framework
         link: 
-        authors: 
-        conference: 
+        authors: Sungho Park, Jeongeum Seok, Jooyoung Lee, Joohyung Yun, Wonseok Lee
+        conference: KDD 2024 Workshop KDD Cup CRAG
 
       - title: 
         link: 
@@ -150,10 +148,10 @@ skills:
 
     toolset:
       - name: Python
-        level: 80%
+        level: 90%
 
       - name: C
-        level: 80%
+        level: 70%
 
 footer: >
     Designed with <i class="fas fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank" rel="nofollow">Xiaoying Riley</a>
