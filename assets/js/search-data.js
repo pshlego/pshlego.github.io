@@ -25,14 +25,14 @@ ninja.data = [{
           },
         },{id: "nav-projects",
           title: "projects",
-          description: "A growing collection of your cool projects.",
+          description: "Research projects in neural information retrieval, multi-modal QA, and retrieval-augmented generation.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
           },
         },{id: "nav-repositories",
           title: "repositories",
-          description: "Edit the `_data/repositories.yml` and change the `github_users` and `github_repos` lists to include your own GitHub profile and repositories.",
+          description: "My GitHub profile and repositories showcasing research code and implementations.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/repositories/";
@@ -46,7 +46,7 @@ ninja.data = [{
           },
         },{id: "nav-teaching",
           title: "teaching",
-          description: "Materials for courses you taught. Replace this text with your description.",
+          description: "Teaching experience in AI applications, data science, and programming at POSTECH and Samsung Electronics.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/teaching/";
@@ -496,19 +496,39 @@ ninja.data = [{
           description: "another project with an image 🎉",
           section: "Projects",handler: () => {
               window.location.href = "/projects/9_project/";
+            },},{id: "projects-helios",
+          title: 'HELIOS',
+          description: "Harmonizing Early Fusion, Late Fusion, and LLM Reasoning for Multi-Granular Table-Text Retrieval",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/helios_project/";
+            },},{id: "projects-kdd-cup-2024-meta-crag",
+          title: 'KDD Cup 2024 Meta CRAG',
+          description: "Three-step Question-Answering Framework for Retrieval-Augmented Generation",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/kdd_cup_project/";
+            },},{id: "projects-oracle-labs-nl2sql",
+          title: 'Oracle Labs NL2SQL',
+          description: "Development of NL2SQL Generation Model for Oracle Database",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/oracle_internship/";
+            },},{id: "projects-sparta",
+          title: 'SPARTA',
+          description: "Scalable and Principled Benchmark of Tree-Structured Multi-hop QA over Text and Tables",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/sparta_project/";
             },},{
         id: 'social-email',
         title: 'email',
         section: 'Socials',
         handler: () => {
-          window.open("mailto:%79%6F%75@%65%78%61%6D%70%6C%65.%63%6F%6D", "_blank");
+          window.open("mailto:%73%68%70%61%72%6B@%64%62%6C%61%62.%70%6F%73%74%65%63%68.%61%63.%6B%72", "_blank");
         },
       },{
-        id: 'social-inspire',
-        title: 'Inspire HEP',
+        id: 'social-github',
+        title: 'GitHub',
         section: 'Socials',
         handler: () => {
-          window.open("https://inspirehep.net/authors/1010907", "_blank");
+          window.open("https://github.com/pshlego", "_blank");
         },
       },{
         id: 'social-rss',
@@ -516,20 +536,6 @@ ninja.data = [{
         section: 'Socials',
         handler: () => {
           window.open("/feed.xml", "_blank");
-        },
-      },{
-        id: 'social-scholar',
-        title: 'Google Scholar',
-        section: 'Socials',
-        handler: () => {
-          window.open("https://scholar.google.com/citations?user=qc6CJjYAAAAJ", "_blank");
-        },
-      },{
-        id: 'social-custom_social',
-        title: 'Custom_social',
-        section: 'Socials',
-        handler: () => {
-          window.open("https://www.alberteinstein.com/", "_blank");
         },
       },{
       id: 'light-theme',
