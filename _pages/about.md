@@ -2,16 +2,16 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: <a href='https://dslab.postech.ac.kr/'>Data Systems Lab</a>. POSTECH. Ph.D. Student.
 
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>Data Systems Lab</p>
+    <p>POSTECH, South Korea</p>
+    <p>shpark@dblab.postech.ac.kr</p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
@@ -27,8 +27,16 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am a Ph.D. student at [Data Systems Lab](https://dslab.postech.ac.kr/) @ Pohang University of Science and Technology (POSTECH), under the supervision of Professor Wook-Shin Han. My research interests range from **neural information retrieval** to **multi-modal open-domain question answering** (such as open question answering over tables and text), and to **retrieval-augmented generation**.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+Recently, I have focused on designing algorithms that retrieve and integrate tables and passages relevant to a query by leveraging semantic relationships across modalities. My work has been published in top-tier venues including ACL 2025 Main and EMNLP 2025.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+## Research Focus
+- **Neural Information Retrieval**: Developing advanced retrieval systems that understand semantic relationships
+- **Multi-modal Question Answering**: Bridging structured (tables) and unstructured (text) data for comprehensive QA
+- **Retrieval-Augmented Generation**: Enhancing language models with dynamic knowledge retrieval
+
+## Recent Achievements
+- **ACL 2025 Main**: HELIOS paper on multi-granular table-text retrieval
+- **EMNLP 2025**: SAFE paper on schema-driven knowledge graph querying (meta score 4.0)
+- **KDD Cup 2024**: Won multiple prizes in Meta CRAG Challenge for retrieval-augmented generation
