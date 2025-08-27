@@ -18,7 +18,7 @@ ninja.data = [{
           },
         },{id: "nav-projects",
           title: "projects",
-          description: "Research projects in neural information retrieval, multi-modal QA, and retrieval-augmented generation.",
+          description: "Research projects in neural information retrieval, multi-modal QA, and Agentic AI.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
@@ -32,7 +32,7 @@ ninja.data = [{
           },
         },{id: "nav-cv",
           title: "cv",
-          description: "My curriculum vitae highlighting my research in neural information retrieval, multi-modal QA, and retrieval-augmented generation.",
+          description: "My curriculum vitae highlighting my research in neural information retrieval, multi-modal QA, and Agentic AI.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/cv/";
