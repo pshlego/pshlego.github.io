@@ -4,8 +4,8 @@ permalink: /cv/
 title: cv
 nav: true
 nav_order: 5
-cv_pdf: example_pdf.pdf # you can also use external links here
-description: This is a description of the page. You can modify it in '_pages/cv.md'. You can also change or remove the top pdf download button.
+cv_pdf: Sungho_Park_CV.pdf # you can also use external links here
+description: My curriculum vitae highlighting my research in neural information retrieval, multi-modal QA, and retrieval-augmented generation.
 toc:
   sidebar: left
 ---
