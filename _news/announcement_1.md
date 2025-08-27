@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🎉 Our first submission to ACL is accepted! **HELIOS: Harmonizing Early Fusion, Late Fusion, and LLM Reasoning for Multi-Granular Table-Text Retrieval** achieves SOTA performance in RAG.
+🎉 My first submission to ACL is accepted! **HELIOS: Harmonizing Early Fusion, Late Fusion, and LLM Reasoning for Multi-Granular Table-Text Retrieval** achieves SOTA performance in RAG.
