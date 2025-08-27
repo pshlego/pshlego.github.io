@@ -5,7 +5,7 @@ permalink: /projects/
 description: Research projects in neural information retrieval, multi-modal QA, and retrieval-augmented generation.
 nav: true
 nav_order: 3
-display_categories: [research, internship]
+display_categories: [research, internship, academic]
 horizontal: false
 ---
 

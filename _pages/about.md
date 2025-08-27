@@ -38,5 +38,5 @@ Recently, I have focused on designing algorithms that retrieve and integrate tab
 
 ## Recent Achievements
 - **ACL 2025 Main**: HELIOS paper on multi-granular table-text retrieval
-- **EMNLP 2025**: SAFE paper on schema-driven knowledge graph querying (meta score 4.0)
+- **EMNLP 2025 Main**: SAFE paper on schema-driven knowledge graph querying
 - **KDD Cup 2024**: Won multiple prizes in Meta CRAG Challenge for retrieval-augmented generation
