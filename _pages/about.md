@@ -22,14 +22,14 @@ announcements:
   limit: 5 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
-  enabled: true
+  enabled: false
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
 
 I am a Ph.D. student at [Data Systems Lab](https://dslab.postech.ac.kr/) @ Pohang University of Science and Technology (POSTECH), under the supervision of Professor Wook-Shin Han. My research interests range from **neural information retrieval** to **multi-modal open-domain question answering** (such as open question answering over tables and text), and to **retrieval-augmented generation**.
 
-Recently, I have focused on designing algorithms that retrieve and integrate tables and passages relevant to a query by leveraging semantic relationships across modalities. My work has been published in top-tier venues including ACL 2025 Main and EMNLP 2025.
+Recently, I have focused on designing algorithms that retrieve and integrate tables and passages relevant to a query by leveraging semantic relationships across modalities. My work has been published in top-tier venues including ACL 2025 Main and EMNLP 2025 Main.
 
 ## Research Focus
 - **Neural Information Retrieval**: Developing advanced retrieval systems that understand semantic relationships
