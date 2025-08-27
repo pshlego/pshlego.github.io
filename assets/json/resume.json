@@ -6,7 +6,7 @@
     "email": "shpark@dblab.postech.ac.kr",
     "phone": "",
     "url": "https://pshlego.github.io",
-    "summary": "Ph.D. student at Data Systems Lab @ POSTECH, specializing in neural information retrieval, multi-modal open-domain question answering, and retrieval-augmented generation.",
+    "summary": "Ph.D. student at Data Systems Lab @ POSTECH, specializing in neural information retrieval, multi-modal open-domain question answering, and Agentic AI.",
     "location": {
       "address": "Data Systems Lab",
       "postalCode": "",
@@ -34,8 +34,8 @@
       "url": "https://www.samsung.com",
       "startDate": "2024-08-01",
       "endDate": "2025-08-01",
-      "summary": "Delivered sessions on language model applications and Retrieval-Augmented Generation (RAG) to software developers.",
-      "highlights": ["Language Model Applications", "RAG Systems", "Enterprise AI Integration"]
+      "summary": "Delivered sessions on language model applications and Agentic AI to software developers.",
+      "highlights": ["Language Model Applications", "Agentic AI Systems", "Enterprise AI Integration"]
     },
     {
       "name": "Samsung Electronics Co.",
@@ -43,8 +43,8 @@
       "url": "https://www.samsung.com",
       "startDate": "2024-07-01",
       "endDate": "2024-07-31",
-      "summary": "Led hands-on sessions on Retrieval-Augmented Generation (RAG) for data science professionals, with 90% of participants holding Ph.D. degrees.",
-      "highlights": ["Advanced RAG Techniques", "Ph.D.-level Training", "Hands-on Workshops"]
+      "summary": "Led hands-on sessions on Agentic AI for data science professionals, with 90% of participants holding Ph.D. degrees.",
+      "highlights": ["Advanced Agentic AI Techniques", "Ph.D.-level Training", "Hands-on Workshops"]
     },
     {
       "name": "Oracle Labs",
@@ -94,7 +94,7 @@
       "startDate": "2023-02-01",
       "endDate": "",
       "score": "",
-      "courses": ["Neural Information Retrieval", "Multi-modal Question Answering", "Retrieval-Augmented Generation"]
+      "courses": ["Neural Information Retrieval", "Multi-modal Question Answering", "Agentic AI"]
     },
     {
       "institution": "Pohang University of Science and Technology (POSTECH)",
@@ -203,7 +203,7 @@
       "name": "Research Areas",
       "level": "Expert",
       "icon": "fa-solid fa-search",
-      "keywords": ["Neural Information Retrieval", "Multi-modal QA", "Retrieval-Augmented Generation"]
+      "keywords": ["Neural Information Retrieval", "Multi-modal QA", "Agentic AI"]
     }
   ],
   "languages": [
@@ -225,7 +225,7 @@
       "keywords": [
         "Neural Information Retrieval",
         "Multi-modal Question Answering", 
-        "Retrieval-Augmented Generation",
+        "Agentic AI",
         "Large Language Models",
         "Knowledge Graphs"
       ]
@@ -254,8 +254,8 @@
     },
     {
       "name": "KDD Cup Meta CRAG 2024",
-      "summary": "Three-step Question-Answering Framework for Retrieval-Augmented Generation that minimizes unnecessary retrievals and prevents error propagation.",
-      "highlights": ["First Place Winner", "RAG Framework", "Error Prevention"],
+      "summary": "Three-step Question-Answering Framework for Agentic AI that minimizes unnecessary retrievals and prevents error propagation.",
+      "highlights": ["First Place Winner", "Agentic AI Framework", "Error Prevention"],
       "startDate": "2024-03-01",
       "endDate": "2024-06-01",
       "url": "https://openreview.net/forum?id=G4Ei2QlKnv"

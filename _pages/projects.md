@@ -2,7 +2,7 @@
 layout: page
 title: projects
 permalink: /projects/
-description: Research projects in neural information retrieval, multi-modal QA, and retrieval-augmented generation.
+description: Research projects in neural information retrieval, multi-modal QA, and Agentic AI.
 nav: true
 nav_order: 3
 display_categories: [research, internship, academic]

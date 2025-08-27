@@ -21,7 +21,7 @@
       description:
         - Graduate School of Artificial Intelligence
         - Supervisor Prof. Wook-Shin Han
-        - Research focus Neural Information Retrieval, Multi-modal QA, Retrieval-Augmented Generation
+        - Research focus Neural Information Retrieval, Multi-modal QA, Agentic AI
     - title: B.S. in Electrical Engineering
       institution: Pohang University of Science and Technology (POSTECH), South Korea
       year: Feb. 2019 - Feb. 2023
@@ -127,10 +127,10 @@
       items:
         - Open-domain QA over tables and text
         - Bridging structured and unstructured data
-    - title: Retrieval-Augmented Generation
+    - title: Agentic AI
       items:
         - Enhancing language models with dynamic knowledge retrieval
-        - Improving accuracy and efficiency in RAG systems
+        - Improving accuracy and efficiency in AI agent systems
 
 - title: Teaching Experience
   type: time_table

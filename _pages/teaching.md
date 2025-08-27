@@ -12,11 +12,11 @@ nav_order: 6
 ### AI Application Specialist (Aug. 2024 - Aug. 2025)
 **Teaching Assistant**
 
-Delivered comprehensive sessions on language model applications and Retrieval-Augmented Generation (RAG) to software developers at Samsung Electronics. Focused on practical implementation of AI technologies in enterprise environments.
+Delivered comprehensive sessions on language model applications and Agentic AI to software developers at Samsung Electronics. Focused on practical implementation of AI technologies in enterprise environments.
 
 **Topics Covered:**
 - Language Model Applications in Software Development
-- Retrieval-Augmented Generation (RAG) Systems
+- Agentic AI Systems
 - AI Integration in Enterprise Software
 - Practical Implementation Strategies
 
@@ -69,6 +69,7 @@ My teaching approach emphasizes:
 
 ## Areas of Expertise
 
+- **Agentic AI**
 - **Retrieval-Augmented Generation (RAG)**
 - **Language Model Applications**
 - **Neural Information Retrieval**
