@@ -72,4 +72,4 @@ This project demonstrates the effective combination of modern deep learning tech
 
 ---
 
-**Project details:** [DB Log Anomaly Detection](https://pshlego.github.io/projects/anomaly_detection_project/)
+**Project details:** [DB Log Anomaly Detection](https://github.com/pshlego/Anomaly_Explanation)
