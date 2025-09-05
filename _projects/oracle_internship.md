@@ -52,3 +52,7 @@ Worked closely with Oracle Labs research team, gaining experience in:
 - Enterprise software requirements
 - Large-scale database systems
 - Production-ready model development
+
+---
+
+**Learn more:** [Generative AI in Oracle APEX](https://blogs.oracle.com/apex/post/generative-ai-apex-1)

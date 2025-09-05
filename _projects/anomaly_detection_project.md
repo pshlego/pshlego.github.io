@@ -69,3 +69,7 @@ This anomaly detection system has practical applications in:
 **October 2023** - Completed implementation and evaluation
 
 This project demonstrates the effective combination of modern deep learning techniques with classical statistical methods to achieve superior performance in practical anomaly detection scenarios.
+
+---
+
+**Project details:** [DB Log Anomaly Detection](https://pshlego.github.io/projects/anomaly_detection_project/)
