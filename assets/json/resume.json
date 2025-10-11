@@ -169,7 +169,7 @@
       "name": "HELIOS: Harmonizing Early Fusion, Late Fusion, and LLM Reasoning for Multi-Granular Table-Text Retrieval",
       "publisher": "ACL 2025 Main",
       "releaseDate": "2025-01-01",
-      "url": "",
+      "url": "https://aclanthology.org/2025.acl-long.1559/",
       "summary": "HELIOS formulates retrieval as finding a query-relevant subgraph within a bipartite data graph built via early fusion of table segments and passages, and introduces a three-stage pipeline integrating early fusion, late fusion, and LLM reasoning."
     },
     {
