@@ -27,14 +27,16 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a Ph.D. student at [Data Systems Lab](https://dslab.postech.ac.kr/) @ Pohang University of Science and Technology (POSTECH), under the supervision of Professor Wook-Shin Han. My research interests range from **neural information retrieval** to **multi-modal open-domain question answering** (such as open question answering over tables and text), and to **Agentic AI**.
+I am a Ph.D. student at [Data Systems Lab](https://dslab.postech.ac.kr/) @ Pohang University of Science and Technology (POSTECH), under the supervision of Professor Wook-Shin Han. 
+My research centers on **building efficient, reliable, and scalable agentic systems** capable of complex reasoning over **large-scale multi-modal data** (e.g., tables and text). 
+I specialize in designing **heterogeneous agentic workflows** that integrate SLMs and LLMs to address multi-hop queries.
 
-Recently, I have focused on designing algorithms that retrieve and integrate tables and passages relevant to a query by leveraging semantic relationships across modalities. My work has been published in top-tier venues including ACL 2025 Main and EMNLP 2025 Main.
+Recently, I have focused on designing automated pipelines for the rigorous evaluation and training of these complex agentic systems. My work has been published in top-tier venues including ACL 2025 Main and EMNLP 2025 Main.
 
 ## Research Focus
-- **Neural Information Retrieval**: Developing advanced retrieval systems that understand semantic relationships
-- **Multi-modal Question Answering**: Bridging structured (tables) and unstructured (text) data for comprehensive QA
-- **Agentic AI**: Enhancing language models with dynamic knowledge retrieval
+- **Heterogeneous Agentic Systems**: Designing cost-effective workflows that orchestrate SLMs for efficient retrieval and LLMs for complex reasoning.
+- **Agentic Retrieval over Multi-modal Data**: Building robust systems for multi-hop question answering across large-scale tables and text.
+- **Scalable Evaluation for Agentic AI**: Automating the creation of rigorous benchmarks and training pipelines for multi-step agentic tasks.
 
 ## Recent Achievements
 - **ACL 2025 Main**: HELIOS paper on multi-granular table-text retrieval
