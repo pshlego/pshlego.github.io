@@ -16,19 +16,19 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
+        },{id: "nav-personal-notes",
+          title: "Personal Notes",
+          description: "Research notes, thoughts, and insights on various topics in AI and machine learning.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/notes/";
+          },
         },{id: "nav-projects",
           title: "projects",
           description: "Research projects in neural information retrieval, multi-modal QA, and Agentic AI.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
-          },
-        },{id: "nav-repositories",
-          title: "repositories",
-          description: "My GitHub profile and repositories showcasing research code and implementations.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/repositories/";
           },
         },{id: "nav-cv",
           title: "cv",
@@ -37,12 +37,12 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "nav-teaching",
-          title: "teaching",
-          description: "Teaching experience in AI applications, data science, and programming at POSTECH and Samsung Electronics.",
+        },{id: "nav-gallery",
+          title: "Gallery",
+          description: "Photo gallery showcasing moments from conferences, research activities, and more.",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/teaching/";
+            window.location.href = "/gallery/";
           },
         },{id: "post-a-post-with-plotly-js",
         
