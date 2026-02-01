@@ -21,6 +21,13 @@ $green-color-bright: #11d68b !default;
 $purple-color: #b509ac !default;
 $light-purple-color: color.adjust($purple-color, $lightness: 25%);
 $pink-color: #f92080 !default;
+
+// Forest Green Theme Colors (Primary palette)
+$forest-green: #013328 !default;
+$forest-green-light: #1a5c4a !default;  // Lighter variant for dark mode
+$deep-black: #100C0D !default;
+$terracotta: #CC8B65 !default;
+$cream-beige: #E3DCD2 !default;
 $pink-color-light: #ffdddd !default;
 $yellow-color: #efcc00 !default;
 
