@@ -1,12 +1,14 @@
-**/*.map
-**/*.min.css
-**/*.min.js
-assets/css/main.scss
-assets/js/distillpub/template.v2.js
-assets/js/search/*.js
-assets/plotly/demo.html
-lighthouse_results/**
-_posts/2015-10-20-math.md
-_sass/font-awesome/*.scss
-_sass/tabler-icons/*.scss
-_scripts/*
+*.min.js
+node_modules
+
+# cache-dirs
+**/.cache
+
+
+dist
+
+# because i want global css output to look good
+src/integrations/theme-constants-to-css.ts
+
+#because these are just conversation logs
+.agents
