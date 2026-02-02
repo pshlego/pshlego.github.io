@@ -35,7 +35,7 @@ export default (): AstroIntegration => ({
 			const fontSans = "var(--font-sans, 'Lato', 'Lucida Grande', Tahoma, 'Helvetica Neue', Helvetica, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif)";
 			const fontSerif = "var(--font-serif, ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif)";
 			const fontMono = "var(--font-mono, 'Roboto Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace)";
-			const fontHeading = "'Lato', 'Helvetica Neue', sans-serif";
+			const fontHeading = fontSans;
 
 			const isMarkdownEnabled = key_value_from_json["block-rendering"]?.["process-content-to-markdown"] === true;
 			const tocContainerBottom = isMarkdownEnabled ? "bottom-52" : "bottom-40";
