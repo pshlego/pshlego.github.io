@@ -1,0 +1,20 @@
+---
+import type { Post } from "@/lib/interfaces";
+import UpdateCard from "./UpdateCard.astro";
+
+interface Props {
+    posts: Post[];
+    title?: string;
+}
+
+const { posts, title = "Updates" } = Astro.props;
+---
+
+<section class="updates-section max-w-[708px] sm:mr-20 print:max-w-full print:mr-auto">
+    <h2 id="auto-updates" class="text-2xl font-semibold mb-6 hasId">{title}</h2>
+    <div class="updates-list">
+        {posts.map(post => (
+            <UpdateCard post={post} />
+        ))}
+    </div>
+</section>

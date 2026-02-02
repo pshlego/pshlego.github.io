@@ -36,6 +36,8 @@ import { adjustedFootnotesConfig } from "@/lib/notion/client";
 import FootnotesSection from "@/components/auto-added-sections/FootnotesSection.astro";
 import BibliographySection from "@/components/auto-added-sections/BibliographySection.astro";
 import CopyMarkdownButton from "@/components/auto-added-sections/CopyMarkdownButton.astro";
+import PublicationsSection from "@/components/custom/PublicationsSection.astro";
+import UpdatesSection from "@/components/custom/UpdatesSection.astro";
 
 export async function getStaticPaths() {
 	const pages = (await getAllPages()).filter((page) => !page.IsExternal);
@@ -156,19 +158,56 @@ if (pageFound) {
 }
 
 let recent_posts = null;
-if (pageFound && page.Slug === HOME_PAGE_SLUG && RECENT_POSTS_ON_HOME_PAGE) {
-	recent_posts = await getAllPosts();
-	recent_posts = recent_posts.filter((post) => !FULL_PREVIEW_COLLECTIONS.includes(post.Collection));
+let publication_posts: Post[] | null = null;
+let update_posts: Post[] | null = null;
+
+if (pageFound && page.Slug === HOME_PAGE_SLUG) {
+	const allPosts = await getAllPosts();
+
+	// Updates 섹션용 포스트 필터링
+	update_posts = allPosts.filter((post) => post.Collection === "updates");
 	if (HIDE_UNDERSCORE_SLUGS_IN_LISTS) {
-		recent_posts = recent_posts.filter((post) => !post.Slug.startsWith("_"));
+		update_posts = update_posts.filter((post) => !post.Slug.startsWith("_"));
 	}
-	recent_posts = recent_posts.slice(0, 5);
-	if (recent_posts && headings) {
+	update_posts = update_posts.slice(0, 5);
+	if (update_posts && update_posts.length > 0 && headings) {
 		headings.push({
-			text: "Recent Posts",
-			slug: "auto-recent-posts",
+			text: "Updates",
+			slug: "auto-updates",
 			depth: 1,
 		});
+	}
+
+	// Publications 섹션용 포스트 필터링
+	publication_posts = allPosts.filter((post) => post.Collection === "publications");
+	if (HIDE_UNDERSCORE_SLUGS_IN_LISTS) {
+		publication_posts = publication_posts.filter((post) => !post.Slug.startsWith("_"));
+	}
+	publication_posts = publication_posts.slice(0, 5);
+	if (publication_posts && publication_posts.length > 0 && headings) {
+		headings.push({
+			text: "Publications",
+			slug: "auto-publications",
+			depth: 1,
+		});
+	}
+
+	// Recent Posts 섹션
+	if (RECENT_POSTS_ON_HOME_PAGE) {
+		recent_posts = allPosts.filter((post) => !FULL_PREVIEW_COLLECTIONS.includes(post.Collection));
+		// publications, updates는 Recent Posts에서 제외
+		recent_posts = recent_posts.filter((post) => post.Collection !== "publications" && post.Collection !== "updates");
+		if (HIDE_UNDERSCORE_SLUGS_IN_LISTS) {
+			recent_posts = recent_posts.filter((post) => !post.Slug.startsWith("_"));
+		}
+		recent_posts = recent_posts.slice(0, 5);
+		if (recent_posts && recent_posts.length > 0 && headings) {
+			headings.push({
+				text: "Recent Posts",
+				slug: "auto-recent-posts",
+				depth: 1,
+			});
+		}
 	}
 }
 ---
@@ -209,7 +248,20 @@ if (pageFound && page.Slug === HOME_PAGE_SLUG && RECENT_POSTS_ON_HOME_PAGE) {
 						{headings && !!headings.length && <TOC headings={headings} />}
 					</article>
 				</div>
-				{RECENT_POSTS_ON_HOME_PAGE && recent_posts && (
+				{update_posts && update_posts.length > 0 && (
+					<UpdatesSection
+						posts={update_posts}
+						title="Updates"
+					/>
+				)}
+				{publication_posts && publication_posts.length > 0 && (
+					<PublicationsSection
+						posts={publication_posts}
+						title="Publications"
+						showViewAll={true}
+					/>
+				)}
+				{RECENT_POSTS_ON_HOME_PAGE && recent_posts && recent_posts.length > 0 && (
 					<div class="max-w-[708px] sm:mr-20 print:mr-auto print:max-w-full">
 						<h2 id="auto-recent-posts" class="hasId">
 							<strong class="font-semibold">Recent Posts</strong>

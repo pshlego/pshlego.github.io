@@ -68,33 +68,33 @@
 		colors: {
 			// Background colors
 			bg: {
-				light: "227 220 210", // Warm beige (#E3DCD2)
-				dark: "16 12 13", // Almost black (#100C0D)
+				light: "250 250 250", // Off-white (#FAFAFA)
+				dark: "18 18 18", // Dark (#121212)
 			},
 			// Main text colors
 			text: {
-				light: "16 12 13", // Almost black (#100C0D)
-				dark: "227 220 210", // Warm beige
+				light: "16 16 16", // Black (#101010)
+				dark: "245 245 245", // Light gray (#F5F5F5)
 			},
 			// Link colors
 			link: {
-				light: "204 139 101", // Terracotta (#CC8B65)
-				dark: "204 139 101", // Terracotta
+				light: "212 175 55", // Classic gold (#D4AF37)
+				dark: "218 185 82", // Bright gold (#DAB952)
 			},
 			// Primary accent color (e.g., for titles, highlights)
 			accent: {
 				light: "1 51 40", // Deep green (#013328)
-				dark: "26 92 74", // Lighter green (#1a5c4a)
+				dark: "38 120 96", // Bright deep green (#267860)
 			},
 			// Secondary accent color (e.g., for borders, subtle highlights)
 			"accent-2": {
-				light: "1 51 40", // Deep green
-				dark: "227 220 210", // Warm beige
+				light: "1 51 40", // Deep green (#013328)
+				dark: "245 245 245", // Light gray (#F5F5F5)
 			},
 			// Color for blockquotes and other special text
 			quote: {
-				light: "204 139 101", // Terracotta
-				dark: "204 139 101", // Terracotta
+				light: "212 175 55", // Classic gold (#D4AF37)
+				dark: "218 185 82", // Bright gold (#DAB952)
 			},
 		},
 		"fontfamily-google-fonts": {
@@ -102,10 +102,10 @@
 			// We automatically load weights [400, 500, 600, 700] and styles [normal, italic] for all fonts (it is fine if they are not available).
 			// Main body/UI font - can be a sans-serif OR serif typeface (e.g., "Roboto", "Merriweather", "Inter")
 			// If empty and mono-font-name is set, mono will be used for everything.
-			"sans-font-name": "Roboto",
+			"sans-font-name": "IBM Plex Sans",
 			// Monospace font for code blocks (e.g., "Fira Code", "JetBrains Mono")
 			// No need to escape spaces in font names!
-			"mono-font-name": "Roboto Mono",
+			"mono-font-name": "Fira Code",
 		},
 		// Enable using the cover image as the hero background (with an overlay for text readability).
 		// When enabled, displays a low-opacity tinted banner behind the title/date/tags area

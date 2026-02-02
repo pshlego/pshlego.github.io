@@ -1,0 +1,76 @@
+---
+import type { Post } from "@/lib/interfaces";
+
+interface Props {
+    post: Post;
+}
+
+const { post } = Astro.props;
+
+// Excerpt에서 저자, 학회, 링크 정보 파싱
+function parseExcerpt(excerpt: string) {
+    const lines = excerpt.split('\n');
+    const authors = lines[0] || '';
+    const venue = lines[1] || '';
+    const links: Record<string, string> = {};
+
+    // '---' 이후의 라인에서 링크 파싱
+    const separatorIndex = lines.findIndex(line => line.trim() === '---');
+    if (separatorIndex !== -1) {
+        lines.slice(separatorIndex + 1).forEach(line => {
+            const match = line.match(/^(pdf|project|code):\s*(.+)$/i);
+            if (match && match[1] && match[2]) {
+                links[match[1].toLowerCase()] = match[2].trim();
+            }
+        });
+    }
+
+    return { authors, venue, links };
+}
+
+const { authors, venue, links } = parseExcerpt(post.Excerpt || '');
+const imageUrl = post.FeaturedImage?.Url || '';
+---
+
+<article class="publication-card">
+    <div class="flex flex-col md:flex-row gap-4">
+        <div class="md:w-1/3 flex-shrink-0">
+            {imageUrl ? (
+                <img src={imageUrl} alt={post.Title}
+                     class="w-full h-32 md:h-40 object-cover rounded-lg" />
+            ) : (
+                <div class="w-full h-32 md:h-40 bg-accent/10 rounded-lg
+                            flex items-center justify-center text-sm text-textColor/50">
+                    No Image
+                </div>
+            )}
+        </div>
+        <div class="flex-1 md:w-2/3">
+            <h3 class="text-lg font-semibold text-textColor mb-2 leading-tight">
+                {post.Title}
+            </h3>
+            <p class="text-sm text-textColor/70 mb-2">{authors}</p>
+            <p class="text-sm text-textColor/50 mb-3 italic">{venue}</p>
+            <div class="flex flex-wrap gap-2">
+                {links.pdf && (
+                    <a href={links.pdf} target="_blank" rel="noopener noreferrer"
+                       class="publication-btn publication-btn-pdf">
+                        PDF
+                    </a>
+                )}
+                {links.project && (
+                    <a href={links.project} target="_blank" rel="noopener noreferrer"
+                       class="publication-btn publication-btn-project">
+                        Project
+                    </a>
+                )}
+                {links.code && (
+                    <a href={links.code} target="_blank" rel="noopener noreferrer"
+                       class="publication-btn publication-btn-code">
+                        Code
+                    </a>
+                )}
+            </div>
+        </div>
+    </div>
+</article>

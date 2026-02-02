@@ -47,3 +47,4 @@ buildcache/
 
 # claude files
 .claude/
+prompt

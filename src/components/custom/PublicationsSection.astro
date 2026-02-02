@@ -1,0 +1,30 @@
+---
+import type { Post } from "@/lib/interfaces";
+import PublicationCard from "./PublicationCard.astro";
+import { getNavLink } from "@/lib/blog-helpers";
+
+interface Props {
+    posts: Post[];
+    title?: string;
+    showViewAll?: boolean;
+}
+
+const { posts, title = "Publications", showViewAll = false } = Astro.props;
+---
+
+<section class="publications-section max-w-[850px] sm:mr-20 print:max-w-full print:mr-auto">
+    <h2 id="auto-publications" class="text-2xl font-semibold mb-6 hasId">{title}</h2>
+    <div class="space-y-6">
+        {posts.map(post => (
+            <PublicationCard post={post} />
+        ))}
+    </div>
+    {showViewAll && (
+        <div class="mt-8 text-center">
+            <a href={getNavLink("/collections/publications/")}
+               class="text-link hover:underline">
+                View all publications →
+            </a>
+        </div>
+    )}
+</section>
