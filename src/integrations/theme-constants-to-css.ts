@@ -345,7 +345,7 @@ ${createCssVariables("dark")}
   }
 
   .notion-column-list > .ncolumns {
-    @apply w-full max-w-full min-w-0 basis-full md:basis-0;
+    @apply w-full max-w-full min-w-0 basis-full md:w-auto md:basis-0;
   }
 
   /* Divider */
