@@ -188,10 +188,17 @@ if (pageFound && page.Slug === HOME_PAGE_SLUG) {
 	if (HIDE_UNDERSCORE_SLUGS_IN_LISTS) {
 		publication_posts = publication_posts.filter((post) => !post.Slug.startsWith("_"));
 	}
-	publication_posts = publication_posts.slice(0, 5);
+	// Rank 기준 정렬 (낮은 숫자 우선, null은 뒤로)
+	publication_posts = publication_posts
+		.sort((a, b) => {
+			if (a.Rank === null) return 1;
+			if (b.Rank === null) return -1;
+			return a.Rank - b.Rank;
+		})
+		.slice(0, 3);
 	if (publication_posts && publication_posts.length > 0 && headings) {
 		headings.push({
-			text: "Publications",
+			text: "Selected Publications",
 			slug: "auto-publications",
 			depth: 1,
 		});
@@ -251,7 +258,7 @@ if (pageFound && page.Slug === HOME_PAGE_SLUG) {
 				{publication_posts && publication_posts.length > 0 && (
 					<PublicationsSection
 						posts={publication_posts}
-						title="Publications"
+						title="Selected Publications"
 						showViewAll={true}
 					/>
 				)}
