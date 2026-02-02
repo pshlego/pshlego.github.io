@@ -68,7 +68,7 @@
 		colors: {
 			// Background colors
 			bg: {
-				light: "250 250 250", // Off-white (#FAFAFA)
+				light: "255 255 255", // Pure white (#FFFFFF)
 				dark: "18 18 18", // Dark (#121212)
 			},
 			// Main text colors
@@ -83,12 +83,12 @@
 			},
 			// Primary accent color (e.g., for titles, highlights)
 			accent: {
-				light: "1 51 40", // Deep green (#013328)
+				light: "21 77 64", // Medium green (#154D40)
 				dark: "38 120 96", // Bright deep green (#267860)
 			},
 			// Secondary accent color (e.g., for borders, subtle highlights)
 			"accent-2": {
-				light: "1 51 40", // Deep green (#013328)
+				light: "21 77 64", // Medium green (#154D40)
 				dark: "245 245 245", // Light gray (#F5F5F5)
 			},
 			// Color for blockquotes and other special text
