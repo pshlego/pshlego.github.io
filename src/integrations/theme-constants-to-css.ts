@@ -32,9 +32,10 @@ export default (): AstroIntegration => ({
 		"astro:build:start": async () => {
 			// Use CSS variables that will be populated by Astro's Font API
 			// If Font API isn't configured, fall back to system fonts
-			const fontSans = "var(--font-sans, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif)";
+			const fontSans = "var(--font-sans, 'Lato', 'Lucida Grande', Tahoma, 'Helvetica Neue', Helvetica, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif)";
 			const fontSerif = "var(--font-serif, ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif)";
-			const fontMono = "var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace)";
+			const fontMono = "var(--font-mono, 'Roboto Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace)";
+			const fontHeading = "'Montserrat', sans-serif";
 
 			const isMarkdownEnabled = key_value_from_json["block-rendering"]?.["process-content-to-markdown"] === true;
 			const tocContainerBottom = isMarkdownEnabled ? "bottom-52" : "bottom-40";
@@ -172,12 +173,14 @@ export default (): AstroIntegration => ({
 			};
 
 			const cssContent = `@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@400;500;600;700&family=Roboto+Mono:wght@400;700&display=swap');
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --font-sans: ${fontSans};
   --font-serif: ${fontSerif};
   --font-mono: ${fontMono};
+  --font-heading: ${fontHeading};
   --color-bgColor: var(--theme-bg);
   --color-textColor: var(--theme-text);
   --color-link: var(--theme-link);
@@ -304,23 +307,27 @@ ${createCssVariables("dark")}
 
 @layer components {
   .site-page-link {
-    @apply underline decoration-wavy decoration-from-font decoration-accent-2/40 hover:decoration-accent-2/60 underline-offset-2;
+    @apply text-link hover:underline hover:decoration-current;
   }
 
   .title {
     @apply text-3xl font-bold text-accent-2;
+    font-family: var(--font-heading);
   }
 
   .notion-h1 {
     @apply mt-8 mb-1 cursor-pointer text-2xl font-semibold;
+    font-family: var(--font-heading);
   }
 
   .notion-h2 {
     @apply mt-6 mb-1 cursor-pointer text-xl font-semibold;
+    font-family: var(--font-heading);
   }
 
   .notion-h3 {
     @apply mt-4 mb-1 cursor-pointer text-lg font-semibold;
+    font-family: var(--font-heading);
   }
 
   .notion-text {
@@ -564,11 +571,11 @@ ${createCssVariables("dark")}
   }
 
   .notion-file-link {
-    @apply underline decoration-wavy decoration-from-font decoration-accent-2/40 hover:decoration-accent-2/60 underline-offset-2 text-link inline-flex max-w-full items-center justify-center rounded-lg text-sm;
+    @apply text-link inline-flex max-w-full items-center justify-center rounded-lg text-sm hover:underline hover:decoration-current;
   }
 
   .notion-file-preview {
-    @apply decoration-accent-2/20 hover:decoration-accent/40 ml-2 inline-flex max-w-full items-center justify-center text-sm underline decoration-wavy hidden sm:inline;
+    @apply ml-2 inline-flex max-w-full items-center justify-center text-sm hidden sm:inline hover:underline hover:decoration-current;
   }
 
   /* TOC */
@@ -679,7 +686,7 @@ ${createCssVariables("dark")}
 
   /* Author Byline */
   .author-name-link {
-    @apply text-link underline decoration-wavy decoration-from-font decoration-accent-2/40 hover:decoration-accent-2/80 underline-offset-2 transition-all;
+    @apply text-link transition-all hover:underline hover:decoration-current;
   }
 
   .author-icon-link {
@@ -701,6 +708,7 @@ ${createCssVariables("dark")}
   /* Recent Posts */
   #auto-recent-posts {
     @apply relative mt-8 mb-4 cursor-pointer text-2xl font-normal;
+    font-family: var(--font-heading);
   }
 
   #auto-recent-posts::before {
@@ -736,6 +744,7 @@ ${createCssVariables("dark")}
 
   .non-toggle-h2 {
     @apply relative mb-4 cursor-pointer text-2xl font-normal;
+    font-family: var(--font-heading);
   }
 
   .non-toggle-h2::before {
@@ -790,14 +799,17 @@ ${createCssVariables("dark")}
 
   .toggle-heading-1 {
     @apply mt-8 mb-0;
+    font-family: var(--font-heading);
   }
 
   .toggle-heading-2 {
     @apply mt-6 mb-1;
+    font-family: var(--font-heading);
   }
 
   .toggle-heading-3 {
     @apply mt-4 mb-1;
+    font-family: var(--font-heading);
   }
 
   /* Pagination */
@@ -1054,6 +1066,7 @@ ${createCssVariables("dark")}
   .mdx-notion h2,
   .mdx-notion h3 {
     @apply font-bold text-textColor tracking-[-0.01em] mt-5 mb-3;
+    font-family: var(--font-heading);
   }
 
   .mdx-notion h1 {
@@ -1113,11 +1126,11 @@ ${createCssVariables("dark")}
   }
 
   .mdx-notion a {
-    @apply text-accent underline decoration-wavy decoration-1 underline-offset-[3px] transition-colors duration-200;
+    @apply text-accent transition-colors duration-200;
   }
 
   .mdx-notion a:hover {
-    @apply text-accent-2;
+    @apply text-accent-2 underline decoration-current;
   }
 }
 
