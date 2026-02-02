@@ -169,7 +169,7 @@ if (pageFound && page.Slug === HOME_PAGE_SLUG) {
 
 	if (update_posts && update_posts.length > 0 && headings) {
 		headings.push({
-			text: "Updates",
+			text: "News",
 			slug: "auto-updates",
 			depth: 1,
 		});
@@ -246,7 +246,7 @@ if (pageFound && page.Slug === HOME_PAGE_SLUG) {
 				{update_posts && update_posts.length > 0 && (
 					<UpdatesSection
 						posts={update_posts}
-						title="Updates"
+						title="News"
 					/>
 				)}
 				{past_notices && past_notices.length > 0 && (
