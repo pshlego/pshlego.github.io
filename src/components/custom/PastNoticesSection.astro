@@ -11,7 +11,7 @@ const { posts, title = "Past notices" } = Astro.props;
 ---
 
 <section class="past-notices-section max-w-[850px] sm:mr-20 print:max-w-full print:mr-auto lg:-ml-[8%] lg:w-[150%]">
-    <h2 id="auto-past-notices" class="text-2xl font-semibold mb-6 hasId">{title}</h2>
+    <h2 id="auto-past-notices" class="text-2xl font-semibold mb-6 hasId" style="font-family: var(--font-heading);">{title}</h2>
     <div class="past-notices-list">
         {posts.map(post => (
             <UpdateCard post={post} />

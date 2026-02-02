@@ -13,7 +13,7 @@ const { posts, title = "Publications", showViewAll = false } = Astro.props;
 ---
 
 <section class="publications-section max-w-[850px] sm:mr-20 print:max-w-full print:mr-auto mb-12 lg:-ml-[8%] lg:w-[150%]">
-    <h2 id="auto-publications" class="text-2xl font-semibold mb-6 hasId">{title}</h2>
+    <h2 id="auto-publications" class="text-2xl font-semibold mb-6 hasId" style="font-family: var(--font-heading);">{title}</h2>
     <div class="space-y-6">
         {posts.map(post => (
             <PublicationCard post={post} />
