@@ -244,7 +244,7 @@
   }
 
   .notion-column-list > .ncolumns {
-    @apply w-full max-w-full min-w-0 basis-44 sm:w-44 md:w-auto;
+    @apply w-full max-w-full min-w-0;
   }
 
   /* Divider */
@@ -436,7 +436,7 @@
   }
 
   .notion-image-container {
-    @apply mx-auto min-w-0 max-w-[400px];
+    @apply min-w-0 max-w-full;
   }
 
   .notion-image {
