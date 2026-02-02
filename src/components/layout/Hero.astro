@@ -84,7 +84,7 @@ if (showHeroBackground && post.Cover?.Url) {
 	>
 		{post.Title}
 	</h1>
-	{post.Excerpt && <q class="mb-2 block italic">{post.Excerpt}</q>}
+	{post.Excerpt && post.Collection !== "Publications" && <q class="mb-2 block italic">{post.Excerpt}</q>}
 	{post.Authors !== undefined && <AuthorByline authors={post.Authors} class="mb-2" />}
 	<div class="flex max-w-full flex-wrap items-center gap-x-3 gap-y-2">
 		<p class="font-semibold">
