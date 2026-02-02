@@ -345,7 +345,7 @@ ${createCssVariables("dark")}
   }
 
   .notion-column-list > .ncolumns {
-    @apply w-full max-w-full min-w-0 basis-full md:basis-0;
+    @apply w-full max-w-full min-w-0 basis-full md:basis-auto;
   }
 
   /* Divider */
@@ -551,7 +551,7 @@ ${createCssVariables("dark")}
   }
 
   .notion-image-container {
-    @apply mx-auto min-w-0;
+    @apply min-w-0;
   }
 
   .notion-image {
