@@ -1,6 +1,15 @@
 ---
+import { Image } from "astro:assets";
 import type { Post } from "@/lib/interfaces";
-import { getNavLink } from "@/lib/blog-helpers";
+import {
+    resolvePostHref,
+    isExternalPost,
+    getNotionImage,
+    filePath,
+    getImageComponentFormat,
+} from "@/lib/blog-helpers";
+import { getIconTailwindFilterStyle } from "@/utils/style-helpers";
+import { isNotionHostedIconUrl } from "@/lib/notion/client";
 
 interface Props {
     post: Post;
@@ -30,14 +39,60 @@ function parseExcerpt(excerpt: string) {
 }
 
 const { authors, venue, links } = parseExcerpt(post.Excerpt || '');
-const imageUrl = post.FeaturedImage?.Url || '';
+
+// Link handling
+const postLink = resolvePostHref(post);
+const external = isExternalPost(post);
+
+// Icon handling (MentionPage.astro 패턴 참조)
+let downloadedIcon = null;
+let externalIconPath: string | null = null;
+
+if (post?.Icon && "Url" in post.Icon && post.Icon.Url) {
+    const iconUrl = post.Icon.Url;
+    const isNotionIcon = isNotionHostedIconUrl(iconUrl);
+    const canBeCachedLocally =
+        post.Icon.Type === "file" || post.Icon.Type === "custom_emoji" || isNotionIcon;
+
+    if (canBeCachedLocally) {
+        downloadedIcon = await getNotionImage(new URL(iconUrl));
+    }
+    if (!downloadedIcon) {
+        externalIconPath = iconUrl;
+    }
+}
+
+// FeaturedImage handling (PostCardGallery.astro 패턴 참조)
+const hasFeaturedImage = post.FeaturedImage && post.FeaturedImage.Url;
+let featuredImageMetadata: ImageMetadata | null = null;
+let featuredImageUrl = "";
+
+if (hasFeaturedImage && post.FeaturedImage) {
+    try {
+        const imgUrl = new URL(post.FeaturedImage.Url);
+        featuredImageMetadata = await getNotionImage(imgUrl);
+        if (!featuredImageMetadata) {
+            featuredImageUrl = filePath(imgUrl);
+        }
+    } catch {
+        featuredImageUrl = post.FeaturedImage.Url;
+    }
+}
 ---
 
 <article class="publication-card">
     <div class="flex flex-col md:flex-row gap-4">
         <div class="md:w-1/3 flex-shrink-0">
-            {imageUrl ? (
-                <img src={imageUrl} alt={post.Title}
+            {featuredImageMetadata ? (
+                <Image
+                    src={featuredImageMetadata}
+                    alt={post.Title}
+                    class="w-full h-32 md:h-40 object-cover rounded-lg"
+                    widths={[300, 400]}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                />
+            ) : featuredImageUrl ? (
+                <img src={featuredImageUrl} alt={post.Title}
                      class="w-full h-32 md:h-40 object-cover rounded-lg" />
             ) : (
                 <div class="w-full h-32 md:h-40 bg-accent/10 rounded-lg
@@ -48,7 +103,32 @@ const imageUrl = post.FeaturedImage?.Url || '';
         </div>
         <div class="flex-1 md:w-2/3">
             <h3 class="text-lg font-semibold mb-2 leading-tight">
-                <a href={getNavLink(`/${post.Slug}/`)} class="text-textColor hover:text-link transition-colors">
+                {/* Icon rendering */}
+                {post.Icon && "Emoji" in post.Icon && post.Icon.Type === "emoji" && (
+                    <span class="mr-1">{post.Icon.Emoji}</span>
+                )}
+                {post.Icon && "Url" in post.Icon && (post.Icon.Type === "external" || post.Icon.Type === "file" || post.Icon.Type === "custom_emoji") && (
+                    downloadedIcon ? (
+                        <Image
+                            src={downloadedIcon}
+                            class={`inline h-5 w-5 mr-1 align-text-bottom ${getIconTailwindFilterStyle(post.Icon.Url)}`}
+                            widths={[100]}
+                            sizes="40px"
+                            alt=""
+                            format={getImageComponentFormat(downloadedIcon)}
+                        />
+                    ) : externalIconPath ? (
+                        <img
+                            src={externalIconPath}
+                            class={`inline h-5 w-5 mr-1 align-text-bottom ${getIconTailwindFilterStyle(post.Icon.Url)}`}
+                            alt=""
+                        />
+                    ) : null
+                )}
+                <a href={postLink}
+                   class="text-textColor hover:text-link transition-colors"
+                   target={external ? "_blank" : undefined}
+                   rel={external ? "nofollow noopener" : undefined}>
                     {post.Title}
                 </a>
             </h3>
