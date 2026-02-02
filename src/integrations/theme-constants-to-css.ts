@@ -35,7 +35,7 @@ export default (): AstroIntegration => ({
 			const fontSans = "var(--font-sans, 'Lato', 'Lucida Grande', Tahoma, 'Helvetica Neue', Helvetica, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif)";
 			const fontSerif = "var(--font-serif, ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif)";
 			const fontMono = "var(--font-mono, 'Roboto Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace)";
-			const fontHeading = "'Lato', 'Helvetica Neue', sans-serif";
+			const fontHeading = "'Montserrat', 'Helvetica Neue', sans-serif";
 
 			const isMarkdownEnabled = key_value_from_json["block-rendering"]?.["process-content-to-markdown"] === true;
 			const tocContainerBottom = isMarkdownEnabled ? "bottom-52" : "bottom-40";
@@ -173,7 +173,7 @@ export default (): AstroIntegration => ({
 			};
 
 			const cssContent = `@import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap');
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
