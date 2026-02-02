@@ -247,6 +247,10 @@
     @apply w-full max-w-full min-w-0 md:w-auto;
   }
 
+  .notion-column-list > .ncolumns.image-column .notion-image {
+    @apply w-full;
+  }
+
   /* Divider */
   .divider {
     @apply bg-accent/30 mx-auto my-4 h-0.5 w-full rounded-sm border-none;

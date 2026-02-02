@@ -22,7 +22,7 @@ const { block, renderChildren = true, setId = true } = Astro.props;
 				? "flex: 0 0 auto; margin-left: auto; min-width: 200px;"
 				: "flex: 0 1 auto;";
 			return (
-				<div class="ncolumns min-w-0" style={flexStyle}>
+				<div class={`ncolumns ${isImageOnlyColumn ? 'image-column' : ''}`} style={flexStyle}>
 					<NotionBlocks blocks={column.Children} renderChildren={renderChildren} setId={setId} />
 				</div>
 			);
