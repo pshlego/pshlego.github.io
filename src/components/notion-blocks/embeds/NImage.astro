@@ -7,6 +7,7 @@ import {
 	getNotionImage,
 	getImageComponentFormat,
 	filePath,
+	parseImageSize,
 } from "@/lib/blog-helpers";
 import Caption from "@/components/notion-blocks/Caption.astro";
 import { isImageTypeForAstro } from "@/lib/notion/client";
@@ -55,9 +56,32 @@ if (externalImageUrl && !block.NImage?.File) {
 }
 
 const plainTextCaption = joinPlainText(block.NImage?.Caption || []);
+const { width: imageWidth, cleanCaption } = parseImageSize(plainTextCaption);
 const altText =
+	cleanCaption ||
 	plainTextCaption ||
 	(downloadedImage ? "Image uploaded to Notion" : externalImageUrl ? "External image" : "Image");
+
+// Build inline style for image container based on parsed width
+const containerStyle = imageWidth ? `max-width: ${imageWidth};` : undefined;
+
+// Remove size pattern from RichText array for caption display
+const cleanedCaptionRichTexts = (block.NImage?.Caption || []).map((rt) => {
+	if (rt.Text?.Content) {
+		// Use a fresh regex for each replace to avoid lastIndex issues
+		const cleanedContent = rt.Text.Content.replace(/\[(?:width=)?(\d+(?:px)?|(?:\d+)?%|full)\]/gi, "").trim();
+		if (cleanedContent !== rt.Text.Content) {
+			return {
+				...rt,
+				Text: {
+					...rt.Text,
+					Content: cleanedContent,
+				},
+			};
+		}
+	}
+	return rt;
+}).filter((rt) => rt.Text?.Content !== ""); // Remove empty text nodes
 
 const isFirstImage = getFirstImage() && setId;
 
@@ -80,14 +104,14 @@ const imageSizes =
 {
 	(downloadedImage || externalImageUrl) && (
 		<figure class="notion-image-figure" id={setId ? block.Id : undefined}>
-			<div class="notion-image-container">
+			<div class="notion-image-container" style={containerStyle}>
 				{ENABLE_LIGHTBOX ? (
 					<a
 						data-type="image"
 						href={downloadedImage ? lightboxImageUrl : externalImageUrl}
 						class="mediaglightbox no-rss"
-						data-description={plainTextCaption}
-						aria-label={`Open image with alt ${plainTextCaption} in lightbox`}
+						data-description={cleanCaption}
+						aria-label={`Open image with alt ${cleanCaption || altText} in lightbox`}
 					>
 						{downloadedImage ? (
 							<Image
@@ -147,7 +171,9 @@ const imageSizes =
 					/>
 				)}
 			</div>
-			<Caption richTexts={block.NImage.Caption} block={block} as="figcaption" />
+			{cleanedCaptionRichTexts.length > 0 && (
+				<Caption richTexts={cleanedCaptionRichTexts} block={block} as="figcaption" />
+			)}
 		</figure>
 	)
 }

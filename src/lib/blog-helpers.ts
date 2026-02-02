@@ -581,6 +581,43 @@ export const resolvePostHref = (
 	return getPostLink(post.Slug, isRoot);
 };
 
+/**
+ * Parse image size information from caption text
+ * Supports formats: [width=400], [50%], [full]
+ * @param caption - The caption text to parse
+ * @returns Object with optional width and cleaned caption text
+ */
+export function parseImageSize(caption: string): { width?: string; cleanCaption: string } {
+	if (!caption) {
+		return { cleanCaption: "" };
+	}
+
+	// Pattern to match [width=400], [width=400px], [50%], [full]
+	const sizePattern = /\[(?:width=)?(\d+(?:px)?|(?:\d+)?%|full)\]/gi;
+
+	let width: string | undefined;
+	let cleanCaption = caption;
+
+	const match = sizePattern.exec(caption);
+	if (match) {
+		const value = match[1].toLowerCase();
+
+		if (value === "full") {
+			width = "100%";
+		} else if (value.endsWith("%")) {
+			width = value;
+		} else {
+			// Numeric value - add px if not present
+			width = value.endsWith("px") ? value : `${value}px`;
+		}
+
+		// Remove the size pattern from caption
+		cleanCaption = caption.replace(sizePattern, "").trim();
+	}
+
+	return { width, cleanCaption };
+}
+
 export const isTweetURL = (url: URL): boolean => {
 	if (
 		url.hostname !== "twitter.com" &&
