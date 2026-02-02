@@ -357,6 +357,13 @@
     @apply mx-auto my-2 flex w-full max-w-full rounded px-3 py-4 leading-6;
   }
 
+  /* Heading 바로 뒤에 오는 callout의 상단 마진 제거 */
+  .notion-h1 + .callout,
+  .notion-h2 + .callout,
+  .notion-h3 + .callout {
+    @apply mt-0;
+  }
+
   .callout-icon {
     @apply m-0 mr-2 leading-6;
   }

@@ -341,11 +341,11 @@ ${createCssVariables("dark")}
 
   /* Column List */
   .notion-column-list {
-    @apply mx-auto my-4 block w-full max-w-full flex-wrap gap-x-4 sm:flex md:flex-nowrap;
+    @apply mx-auto my-4 flex w-full max-w-full flex-wrap gap-x-2 sm:gap-x-3 md:flex-nowrap;
   }
 
   .notion-column-list > .ncolumns {
-    @apply w-full max-w-full min-w-0 flex-1 basis-44 sm:w-44 md:w-auto;
+    @apply w-full max-w-full min-w-0 basis-full md:basis-0;
   }
 
   /* Divider */
@@ -467,6 +467,13 @@ ${createCssVariables("dark")}
   }
 
   .callout-content.simple > :first-child {
+    @apply mt-0;
+  }
+
+  /* Heading 바로 뒤에 오는 callout의 상단 마진 제거 */
+  .notion-h1 + .callout,
+  .notion-h2 + .callout,
+  .notion-h3 + .callout {
     @apply mt-0;
   }
 
