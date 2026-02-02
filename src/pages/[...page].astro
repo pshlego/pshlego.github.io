@@ -210,7 +210,7 @@ if (pageFound && page.Slug === HOME_PAGE_SLUG) {
 					ogImage: `/og-image/${page.Slug}.png`,
 				}}
 			>
-				<div class="max-w-[850px] mx-auto print:max-w-full">
+				<div class="max-w-[708px] sm:mr-20 print:max-w-full print:mr-auto">
 					<article class="break-words" data-pagefind-body>
 						{shouldUseCache && cachedHtml ? (
 							<div class="post-body" data-html-type="cached" set:html={cachedHtml} />
