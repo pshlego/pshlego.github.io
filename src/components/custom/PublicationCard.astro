@@ -1,5 +1,6 @@
 ---
 import type { Post } from "@/lib/interfaces";
+import { getNavLink } from "@/lib/blog-helpers";
 
 interface Props {
     post: Post;
@@ -46,8 +47,10 @@ const imageUrl = post.FeaturedImage?.Url || '';
             )}
         </div>
         <div class="flex-1 md:w-2/3">
-            <h3 class="text-lg font-semibold text-textColor mb-2 leading-tight">
-                {post.Title}
+            <h3 class="text-lg font-semibold mb-2 leading-tight">
+                <a href={getNavLink(`/${post.Slug}/`)} class="text-textColor hover:text-link transition-colors">
+                    {post.Title}
+                </a>
             </h3>
             <p class="text-sm text-textColor/70 mb-2">{authors}</p>
             <p class="text-sm text-textColor/50 mb-3 italic">{venue}</p>
