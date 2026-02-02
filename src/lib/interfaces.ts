@@ -268,6 +268,7 @@ export interface Column {
 	Type: string;
 	HasChildren: boolean;
 	Children: Block[];
+	Width?: number; // Notion column width ratio (0-1)
 }
 
 export interface List {

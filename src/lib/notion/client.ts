@@ -2130,6 +2130,7 @@ async function _getColumns(blockId: string): Promise<{ columns: Column[]; fileBl
 				Type: blockObject.type,
 				HasChildren: blockObject.has_children,
 				Children: children,
+				Width: (blockObject as any).column?.width,
 			};
 
 			return column;
