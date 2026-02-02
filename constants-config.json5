@@ -78,8 +78,8 @@
 			},
 			// Link colors
 			link: {
-				light: "212 175 55", // Classic gold (#D4AF37)
-				dark: "218 185 82", // Bright gold (#DAB952)
+				light: "1 51 40", // Deep green (#013328)
+				dark: "38 120 96", // Bright deep green (#267860)
 			},
 			// Primary accent color (e.g., for titles, highlights)
 			accent: {
@@ -93,8 +93,8 @@
 			},
 			// Color for blockquotes and other special text
 			quote: {
-				light: "212 175 55", // Classic gold (#D4AF37)
-				dark: "218 185 82", // Bright gold (#DAB952)
+				light: "1 51 40", // Deep green (#013328)
+				dark: "38 120 96", // Bright deep green (#267860)
 			},
 		},
 		"fontfamily-google-fonts": {
