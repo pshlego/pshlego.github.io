@@ -477,6 +477,13 @@ ${createCssVariables("dark")}
     @apply mt-0;
   }
 
+  /* Heading 바로 뒤에 오는 toggle의 상단 마진 제거 */
+  .notion-h1 + .toggle,
+  .notion-h2 + .toggle,
+  .notion-h3 + .toggle {
+    @apply mt-0;
+  }
+
   /* Toggle */
   .toggle {
     @apply my-1;
