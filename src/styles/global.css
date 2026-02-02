@@ -244,7 +244,7 @@
   }
 
   .notion-column-list > .ncolumns {
-    @apply w-full max-w-full min-w-0 md:w-auto md:basis-0;
+    @apply w-full max-w-full min-w-0 md:w-auto;
   }
 
   /* Divider */
