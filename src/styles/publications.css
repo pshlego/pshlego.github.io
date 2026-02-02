@@ -85,6 +85,7 @@
     /* Publications section heading - similar to #auto-recent-posts */
     #auto-publications {
         @apply relative mt-8 mb-4 cursor-pointer text-2xl font-normal;
+        font-family: var(--font-heading);
     }
 
     #auto-publications::before {
@@ -184,6 +185,7 @@
     /* Updates section heading - similar to #auto-publications */
     #auto-updates {
         @apply relative mt-8 mb-4 cursor-pointer text-2xl font-normal;
+        font-family: var(--font-heading);
     }
 
     #auto-updates::before {
