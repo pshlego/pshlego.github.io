@@ -17,8 +17,10 @@ const { block, renderChildren = true, setId = true } = Astro.props;
 			// 이미지만 있는 컬럼인지 확인
 			const isImageOnlyColumn = column.Children.length > 0 &&
 				column.Children.every((child) => child.Type === "image");
-			// 이미지 컬럼: 콘텐츠 크기 유지, 텍스트 컬럼: 남은 공간 확장
-			const flexStyle = isImageOnlyColumn ? "flex: 0 0 auto;" : "flex: 1 1 0%;";
+			// 이미지 컬럼: 오른쪽 정렬, 텍스트 컬럼: 콘텐츠 크기
+			const flexStyle = isImageOnlyColumn
+				? "flex: 0 0 auto; margin-left: auto;"
+				: "flex: 0 1 auto;";
 			return (
 				<div class="ncolumns min-w-0" style={flexStyle}>
 					<NotionBlocks blocks={column.Children} renderChildren={renderChildren} setId={setId} />
