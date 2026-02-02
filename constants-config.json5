@@ -102,10 +102,10 @@
 			// We automatically load weights [400, 500, 600, 700] and styles [normal, italic] for all fonts (it is fine if they are not available).
 			// Main body/UI font - can be a sans-serif OR serif typeface (e.g., "Roboto", "Merriweather", "Inter")
 			// If empty and mono-font-name is set, mono will be used for everything.
-			"sans-font-name": "IBM Plex Sans",
+			"sans-font-name": "Lato",
 			// Monospace font for code blocks (e.g., "Fira Code", "JetBrains Mono")
 			// No need to escape spaces in font names!
-			"mono-font-name": "Fira Code",
+			"mono-font-name": "Roboto Mono",
 		},
 		// Enable using the cover image as the hero background (with an overlay for text readability).
 		// When enabled, displays a low-opacity tinted banner behind the title/date/tags area
@@ -302,13 +302,13 @@
 		// This functionality was previously controlled by a key named 'references'.
 		"interlinked-content": {
 			// If true, displays a list of links to other pages on your site that are mentioned in the current page.
-			"site-links-in-page": true,
+			"site-links-in-page": false,
 			// If true, displays a list of external websites linked from the current page.
-			"external-links-in-page": true,
+			"external-links-in-page": false,
 			// If true, displays a list of media files (images, videos, audio) embedded in the current page.
-			"media-and-file-links-in-this-page": true,
+			"media-and-file-links-in-this-page": false,
 			// If true, displays a list of "backlinks" - other pages on your site that link to the current page.
-			"links-to-this-page": true,
+			"links-to-this-page": false,
 			// NOTE: The 'popovers' feature is now enabled by default and its configuration key has been removed.
 		},
 
