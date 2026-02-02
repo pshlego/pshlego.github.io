@@ -348,7 +348,7 @@ ${createCssVariables("dark")}
 
   /* Column List */
   .notion-column-list {
-    @apply mx-auto my-4 flex w-full max-w-full flex-wrap gap-x-4 sm:gap-x-6 md:flex-nowrap;
+    @apply mx-auto my-4 flex w-full max-w-full flex-wrap gap-x-6 sm:gap-x-8 md:flex-nowrap;
   }
 
   .notion-column-list > .ncolumns {
