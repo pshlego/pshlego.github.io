@@ -551,7 +551,7 @@ ${createCssVariables("dark")}
   }
 
   .notion-image-container {
-    @apply min-w-0;
+    @apply min-w-0 ml-auto;
   }
 
   .notion-image {

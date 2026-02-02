@@ -17,7 +17,7 @@ const { block, renderChildren = true, setId = true } = Astro.props;
 			// Width가 있으면 flex 비율로 변환, 없으면 기본값 1
 			const flexValue = column.Width ?? 1;
 			return (
-				<div class="ncolumns min-w-0" style={`flex: ${flexValue};`}>
+				<div class="ncolumns min-w-0" style={`flex-grow: ${flexValue};`}>
 					<NotionBlocks blocks={column.Children} renderChildren={renderChildren} setId={setId} />
 				</div>
 			);
