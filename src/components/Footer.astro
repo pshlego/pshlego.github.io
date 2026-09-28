@@ -1,0 +1,52 @@
+---
+import Icon from "@/components/Icon.astro";
+import { site } from "@/site.config";
+
+const current = Astro.url.pathname;
+const isCurrent = (path: string) =>
+	path === "/" ? current === "/" : current === path || current.startsWith(path);
+---
+
+<footer class="site-footer text-sm">
+	<nav aria-label="More on this site" class="flex flex-wrap items-center justify-center gap-x-3">
+		{
+			site.nav.map((link, i) => (
+				<>
+					{i > 0 && (
+						<span class="text-accent/50" aria-hidden="true">
+							•
+						</span>
+					)}
+					<a
+						href={link.path}
+						class="footer-link"
+						aria-current={isCurrent(link.path) ? "page" : undefined}
+					>
+						{link.title}
+					</a>
+				</>
+			))
+		}
+	</nav>
+	<div class="flex items-center gap-x-3">
+		<span class="text-accent">Find me on</span>
+		<ul class="flex items-center gap-x-2">
+			{
+				site.socials.map((s) => (
+					<li>
+						<a
+							href={s.href}
+							class="text-accent hover:opacity-70"
+							target={s.href.startsWith("http") ? "_blank" : undefined}
+							rel="noopener noreferrer"
+							aria-label={s.label}
+							title={s.href.replace("mailto:", "")}
+						>
+							<Icon name={s.icon} class="h-6 w-6" />
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</footer>

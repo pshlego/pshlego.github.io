@@ -1,19 +1,8 @@
 ---
-import { Image } from "astro:assets";
-
-import PageLayout from "@/layouts/Base.astro";
-import img404 from "@/assets/404-Error-with-a-cute-animal-amico.svg";
-
-const meta = {
-	title: "Oops! You found a missing page!",
-	description: "Oops! It looks like this page is lost in space!",
-};
+import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
-<PageLayout meta={meta}>
-	<h1 class="title mb-6">404 | Oops something went wrong</h1>
-	<p class="mb-8">Please use the navigation to find your way back</p>
-	<div class="my-4 grid justify-center">
-		<Image loading="eager" src={img404} alt="A cat is lost!" />
-	</div>
-</PageLayout>
+<BaseLayout title="Page not found">
+	<h1 class="title mb-4">404</h1>
+	<p>This page doesn’t exist. <a href="/" class="text-link hover:underline">Go home →</a></p>
+</BaseLayout>

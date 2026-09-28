@@ -1,0 +1,59 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PublicationCard from "@/components/PublicationCard.astro";
+import Icon from "@/components/Icon.astro";
+import { getPublications, tagColorClass, tagPath } from "@/lib/content";
+
+const pubs = await getPublications();
+const tagCounts = new Map<string, number>();
+for (const p of pubs) for (const t of p.data.tags) tagCounts.set(t, (tagCounts.get(t) ?? 0) + 1);
+const tags = [...tagCounts].sort(([a], [b]) => a.localeCompare(b));
+
+// Group by year of `date`, newest first.
+const years = [...new Set(pubs.map((p) => p.data.date.getUTCFullYear()))];
+---
+
+<BaseLayout title="Publications" description="Publications by Sungho Park">
+	<h1 class="title mb-6">Publications</h1>
+	<div class="grid grid-cols-1 gap-y-12 sm:grid-cols-4 sm:gap-x-8">
+		<section class="sm:col-span-3" aria-label="Publication list">
+			{
+				years.map((year) => (
+					<>
+						<h2 class="text-accent-2 mt-6 mb-4 text-xl font-semibold first:mt-0">{year}</h2>
+						<div class="space-y-6">
+							{pubs
+								.filter((p) => p.data.date.getUTCFullYear() === year)
+								.map((pub) => (
+									<PublicationCard pub={pub} />
+								))}
+						</div>
+					</>
+				))
+			}
+		</section>
+		{
+			tags.length > 0 && (
+				<aside class="print:hidden">
+					<h2 class="text-accent-2 mb-4 flex items-center gap-1 text-lg font-semibold">
+						<Icon name="tag-multiple" class="h-6 w-6" />
+						Tags
+					</h2>
+					<ul class="flex flex-wrap gap-2">
+						{tags.map(([tag, count]) => (
+							<li>
+								<a href={tagPath(tag)} class:list={["tag-chip gap-1.5 px-2", tagColorClass(tag)]}>
+									{tag}
+									<span class="text-xs opacity-60">{count}</span>
+								</a>
+							</li>
+						))}
+					</ul>
+					<a href="/tags/" class="hover:text-link mt-4 inline-block text-sm">
+						View all →
+					</a>
+				</aside>
+			)
+		}
+	</div>
+</BaseLayout>

@@ -1,0 +1,40 @@
+---
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PublicationCard from "@/components/PublicationCard.astro";
+import {
+	formatDate,
+	getAllTags,
+	getNotes,
+	getPublications,
+	postPath,
+	slugify,
+} from "@/lib/content";
+
+export const getStaticPaths = (async () => {
+	const tags = await getAllTags();
+	return tags.map(({ name }) => ({ params: { tag: slugify(name) }, props: { name } }));
+}) satisfies GetStaticPaths;
+
+const { name } = Astro.props;
+const pubs = (await getPublications()).filter((p) => p.data.tags.includes(name));
+const notes = (await getNotes()).filter((n) => n.data.tags.includes(name));
+---
+
+<BaseLayout title={`Tag: ${name}`}>
+	<h1 class="title mb-6">Tag: {name}</h1>
+	<div class="space-y-6 lg:w-4/5">
+		{pubs.map((pub) => <PublicationCard pub={pub} headingLevel="h2" />)}
+		{
+			notes.map((note) => (
+				<p>
+					<time class="me-2 font-mono text-xs">{formatDate(note.data.date)}</time>
+					<a href={postPath(note.id)} class="text-link hover:underline">
+						{note.data.title}
+					</a>
+				</p>
+			))
+		}
+	</div>
+	<p class="mt-8"><a href="/tags/" class="text-link hover:underline">← All tags</a></p>
+</BaseLayout>

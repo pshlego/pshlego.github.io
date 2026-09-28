@@ -1,0 +1,23 @@
+---
+import Icon from "@/components/Icon.astro";
+import { tagColorClass, tagPath } from "@/lib/content";
+
+interface Props {
+	tags: string[];
+}
+
+const { tags } = Astro.props;
+---
+
+{
+	tags.length > 0 && (
+		<div class="flex flex-wrap items-center gap-1">
+			<Icon name="tag" class="me-1 h-4 w-4 opacity-80" />
+			{tags.map((tag) => (
+				<a href={tagPath(tag)} class:list={["tag-chip hover:opacity-80", tagColorClass(tag)]}>
+					{tag}
+				</a>
+			))}
+		</div>
+	)
+}

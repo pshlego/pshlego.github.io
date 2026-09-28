@@ -1,0 +1,28 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import TagList from "@/components/TagList.astro";
+import { formatDate, getNotes, postPath } from "@/lib/content";
+
+const notes = await getNotes();
+---
+
+<BaseLayout title="Personal Notes">
+	<h1 class="title mb-6">Personal Notes</h1>
+	<ul class="space-y-4 lg:w-4/5">
+		{
+			notes.map((note) => (
+				<li class="flex flex-col gap-1.5">
+					<time class="font-mono text-xs" datetime={note.data.date.toISOString()}>
+						{formatDate(note.data.date)}
+					</time>
+					<a href={postPath(note.id)} class="text-link hover:underline">
+						{note.data.title}
+					</a>
+					{note.data.description && <p class="text-sm opacity-80">{note.data.description}</p>}
+					<TagList tags={note.data.tags} />
+				</li>
+			))
+		}
+		{notes.length === 0 && <li class="opacity-70">No notes yet.</li>}
+	</ul>
+</BaseLayout>

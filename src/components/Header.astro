@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets";
+import logo from "@/assets/logo.png";
+import Icon from "@/components/Icon.astro";
+import Search from "@/components/Search.astro";
+import ThemeToggle from "@/components/ThemeToggle.astro";
+import { site } from "@/site.config";
+
+const current = Astro.url.pathname;
+const isCurrent = (path: string) =>
+	path === "/" ? current === "/" : current === path || current.startsWith(path);
+---
+
+<header id="main-header" class="site-header">
+	<div class="flex sm:flex-col">
+		<a
+			href="/"
+			class="inline-flex items-center sm:relative sm:inline-block"
+			aria-current={current === "/" ? "page" : undefined}
+		>
+			<Image
+				src={logo}
+				alt=""
+				width={120}
+				loading="eager"
+				class="me-3 h-10 w-10 object-contain sm:absolute sm:start-[-4.5rem] sm:me-0 sm:h-15 sm:w-15"
+			/>
+			<span class="text-xl font-bold sm:text-2xl" style="font-family: var(--font-heading);"
+				>{site.title}</span
+			>
+		</a>
+		<nav id="navigation-menu" class="nav-menu" aria-label="Main menu">
+			{
+				site.nav.map((link) => (
+					<a
+						href={link.path}
+						class="nav-link"
+						aria-current={isCurrent(link.path) ? "page" : undefined}
+					>
+						{link.title}
+					</a>
+				))
+			}
+		</nav>
+	</div>
+	<div class="flex flex-row items-center print:hidden">
+		<a href="/rss.xml" class="icon-btn" aria-label="RSS feed">
+			<Icon name="rss" class="h-7 w-7" />
+		</a>
+		<Search />
+		<ThemeToggle />
+		<button
+			id="toggle-navigation-menu"
+			class="ms-2 h-7 w-7 cursor-pointer sm:hidden"
+			type="button"
+			aria-label="Open main menu"
+			aria-expanded="false"
+			aria-controls="navigation-menu"
+		>
+			<Icon name="menu" class="h-7 w-7" />
+		</button>
+	</div>
+</header>
+
+<script>
+	const button = document.getElementById("toggle-navigation-menu")!;
+	const menu = document.getElementById("navigation-menu")!;
+	button.addEventListener("click", () => {
+		const open = menu.classList.toggle("menu-open");
+		button.setAttribute("aria-expanded", String(open));
+	});
+	document.addEventListener("click", (e) => {
+		if (!menu.contains(e.target as Node) && !button.contains(e.target as Node)) {
+			menu.classList.remove("menu-open");
+			button.setAttribute("aria-expanded", "false");
+		}
+	});
+</script>

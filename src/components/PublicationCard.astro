@@ -1,0 +1,70 @@
+---
+import { Image } from "astro:assets";
+import Authors from "@/components/Authors.astro";
+import { postPath, shortTitle, type Publication } from "@/lib/content";
+
+interface Props {
+	pub: Publication;
+	headingLevel?: "h2" | "h3";
+}
+
+const { pub, headingLevel = "h3" } = Astro.props;
+const { title, authors, venue, award, image, links } = pub.data;
+const Heading = headingLevel;
+const buttons = [
+	{ key: "pdf", label: "PDF", href: links.pdf },
+	{ key: "project", label: "Project", href: links.project },
+	{ key: "code", label: "Code", href: links.code },
+].filter((b) => b.href);
+---
+
+<article class="publication-card">
+	<div class="flex flex-col gap-4 md:flex-row">
+		<a href={postPath(pub.id)} class="shrink-0 md:w-1/3" tabindex="-1" aria-hidden="true">
+			{
+				image ? (
+					<Image
+						src={image}
+						alt=""
+						widths={[300, 600]}
+						sizes="(max-width: 768px) 100vw, 300px"
+						class="h-32 w-full rounded-lg object-cover md:h-40"
+					/>
+				) : (
+					<div class="bg-accent/10 text-accent-2 flex h-32 w-full items-center justify-center rounded-lg px-3 text-center text-2xl font-bold md:h-40">
+						{shortTitle(title)}
+					</div>
+				)
+			}
+		</a>
+		<div class="flex-1 md:w-2/3">
+			<Heading class="mb-2 text-lg leading-tight font-semibold">
+				<a href={postPath(pub.id)} class="text-textColor hover:text-link transition-colors">
+					{title}
+				</a>
+			</Heading>
+			<p class="text-textColor/70 mb-2 text-sm"><Authors authors={authors} /></p>
+			<p class="text-textColor/50 mb-3 text-sm italic">
+				{venue}
+				{award && <span class="not-italic">&nbsp;|&nbsp;🏆</span>}
+				{award && <span>{award}</span>}
+			</p>
+			{
+				buttons.length > 0 && (
+					<div class="flex flex-wrap gap-2">
+						{buttons.map((b) => (
+							<a
+								href={b.href}
+								target="_blank"
+								rel="noopener noreferrer"
+								class={`publication-btn publication-btn-${b.key}`}
+							>
+								{b.label}
+							</a>
+						))}
+					</div>
+				)
+			}
+		</div>
+	</div>
+</article>

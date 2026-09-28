@@ -1,0 +1,22 @@
+---
+import { site } from "@/site.config";
+
+interface Props {
+	authors: string[];
+}
+
+const { authors } = Astro.props;
+---
+
+{
+	authors.map((name, i) => (
+		<>
+			{name.replace(/\*$/, "") === site.highlightAuthor ? (
+				<strong class="text-textColor font-semibold">{name}</strong>
+			) : (
+				name
+			)}
+			{i < authors.length - 1 && ", "}
+		</>
+	))
+}

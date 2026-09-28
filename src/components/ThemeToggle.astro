@@ -1,0 +1,65 @@
+---
+import Icon from "@/components/Icon.astro";
+
+const iconProps = {
+	class: "absolute inset-0 m-auto h-7 w-7 scale-0 opacity-0 transition-all",
+	fill: "none",
+	stroke: "currentColor",
+	"stroke-width": "1.5",
+	"stroke-linecap": "round",
+} as const;
+---
+
+<!-- Cycles system -> light -> dark. The initial class is set by the inline script in BaseLayout. -->
+<button
+	id="theme-toggle"
+	type="button"
+	class="group hover:text-accent relative h-10 w-10 cursor-pointer"
+	aria-label="Toggle theme"
+	data-theme="system"
+>
+	<Icon
+		name="theme-system"
+		{...iconProps}
+		class={`${iconProps.class} group-data-[theme=system]:scale-100 group-data-[theme=system]:opacity-100`}
+	/>
+	<Icon
+		name="theme-light"
+		{...iconProps}
+		class={`${iconProps.class} group-data-[theme=light]:scale-100 group-data-[theme=light]:opacity-100`}
+	/>
+	<Icon
+		name="theme-dark"
+		{...iconProps}
+		class={`${iconProps.class} group-data-[theme=dark]:scale-100 group-data-[theme=dark]:opacity-100`}
+	/>
+</button>
+
+<script>
+	const order = ["system", "light", "dark"] as const;
+	const button = document.getElementById("theme-toggle")!;
+	const stored = () => {
+		try {
+			return localStorage.getItem("theme") ?? "system";
+		} catch {
+			return "system";
+		}
+	};
+	const apply = (theme: string) => {
+		const dark =
+			theme === "dark" ||
+			(theme === "system" && matchMedia("(prefers-color-scheme: dark)").matches);
+		document.documentElement.classList.toggle("dark", dark);
+		button.dataset.theme = theme;
+		button.setAttribute("aria-label", `Theme: ${theme}`);
+	};
+	apply(stored());
+	button.addEventListener("click", () => {
+		const next = order[(order.indexOf(stored() as (typeof order)[number]) + 1) % order.length]!;
+		try {
+			localStorage.setItem("theme", next);
+		} catch {}
+		apply(next);
+	});
+	matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => apply(stored()));
+</script>

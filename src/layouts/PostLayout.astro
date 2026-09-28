@@ -1,0 +1,28 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import TagList from "@/components/TagList.astro";
+import { formatDate } from "@/lib/content";
+
+interface Props {
+	title: string;
+	date: Date;
+	tags: string[];
+	description?: string;
+	image?: string;
+}
+
+const { title, date, tags, description, image } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} image={image}>
+	<article class="lg:w-4/5" data-pagefind-body>
+		<h1 class="title mb-2">{title}</h1>
+		<slot name="byline" />
+		<p class="my-2 font-semibold">
+			<time datetime={date.toISOString()}>{formatDate(date)}</time>
+		</p>
+		<TagList tags={tags} />
+		<hr class="border-accent/30 my-4 border-t-2" />
+		<slot />
+	</article>
+</BaseLayout>

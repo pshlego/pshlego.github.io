@@ -1,83 +1,86 @@
 # Sungho Park - Personal Website
 
-Personal academic website built with [Webtrotion](https://github.com/nerdymomocat-templates/webtrotion-astro-notion-cms-website-blog) (Astro + Notion CMS).
+Personal academic website at <https://pshlego.github.io>, built with [Astro](https://astro.build).
+All content lives in this repository as Markdown. **Push to `main` and GitHub Actions rebuilds and deploys the site.**
 
-## Setup Instructions
+## Editing content
 
-### 1. Notion Setup
+| What | Where | URL |
+|---|---|---|
+| Home intro + photo | `src/content/pages/home.md` | `/` |
+| About | `src/content/pages/about.md` | `/about/` |
+| Publications | `src/content/publications/<slug>.md` | `/posts/<slug>/` |
+| News | `src/content/news/<date>-<name>.md` | home page |
+| Personal notes | `src/content/notes/<slug>.md` | `/posts/<slug>/` |
+| Site title, menu, socials, tag colors | `src/site.config.ts` | |
 
-1. **Create a Notion Integration**:
-   - Go to [Notion Developers](https://www.notion.so/my-integrations)
-   - Create a new integration
-   - Copy the "Internal Integration Secret" (starts with `secret_`)
+The fields each file accepts are defined (and validated at build time) in `src/content.config.ts`.
 
-2. **Create a Notion Database**:
-   - Duplicate the [Webtrotion Notion Template](https://nerdymomocat-templates.github.io/webtrotion-astro-notion-cms-website-blog/)
-   - Share your database with your integration (click "..." → "Add connections" → select your integration)
+### Add a publication
 
-3. **Get Database/Data Source ID**:
-   - Find your Data Source ID at [Notion API Reference](https://developers.notion.com/reference/retrieve-a-data-source#finding-a-data-source-id)
-   - Or use the Database ID from the URL: `notion.so/{workspace}/{database-id}?...`
+Create `src/content/publications/my-paper.md`:
 
-4. **Update Configuration**:
-   - Edit `constants-config.json5`
-   - Add your `data-source-id` or `database-id` in the `notion` section
+```markdown
+---
+title: "MyPaper: A Descriptive Subtitle"
+authors: [Sungho Park, Coauthor Name, Wook-Shin Han] # add * for equal contribution, e.g. "Sungho Park*"
+venue: NeurIPS 2026 # e.g. "ACL 2025 | Main Conference"
+award: Best Paper Award # optional
+date: 2026-09-25 # ordering (newest first) and year grouping
+tags: [Multihop QA]
+image: ../../assets/publications/my-paper.png # optional; put the file in src/assets/publications/
+links:
+  pdf: https://openreview.net/pdf?id=...
+  project: https://...
+  code: https://github.com/...
+selected: 1 # optional: position under "Selected Publications" on the home page
+---
 
-### 2. GitHub Setup
+Optional abstract or notes, shown on the paper's page.
+```
 
-1. **Add Notion Secret to GitHub**:
-   - Go to Repository Settings → Secrets and variables → Actions
-   - Add a new secret: `NOTION_API_SECRET` with your Notion integration token
+Publications without an image show their short name (the part before `:`) instead.
+Set `draft: true` to hide any publication, news item, or note.
 
-2. **Enable GitHub Pages**:
-   - Go to Repository Settings → Pages
-   - Set Source to "GitHub Actions"
+### Add a news item
 
-### 3. Local Development
+Create `src/content/news/2026-09-25-neurips.md`:
+
+```markdown
+---
+date: 2026-09-25
+title: "AutoSaddler: Automatic Harness Optimization ..."
+link: /posts/autosaddler/ # optional: makes the title a link
+---
+A paper on ... has been accepted to _NeurIPS_ 2026.
+```
+
+The newest three items appear under **News**; older ones fold into **Past notices** (`newsCount` in `src/site.config.ts`).
+
+## Local development
+
+Requires Node.js 20.3+ or 22+.
 
 ```bash
-# Install dependencies
 npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
+npm run dev      # http://localhost:4321 with live reload
+npm run build    # production build into dist/ (+ Pagefind search index)
+npm run preview  # serve dist/
 ```
 
-**Note**: For local development, create a `.env` file with:
-```
-NOTION_API_SECRET=your_notion_secret_here
-```
+Search only works after `npm run build`, since the index is generated from the built pages.
 
-## Color Palette
+## Deployment
 
-| Usage | Hex | Description |
-|-------|-----|-------------|
-| Primary | #013328 | Deep green |
-| Secondary | #100C0D | Almost black |
-| Accent | #CC8B65 | Terracotta |
-| Background | #E3DCD2 | Warm beige |
+`.github/workflows/deploy.yml` builds and deploys on every push to `main` (and on manual
+"Run workflow"). In repository **Settings → Pages**, the source must be **GitHub Actions**.
 
-## Content Migration
+## Color palette
 
-Your previous Jekyll site content has been backed up in the `backup-jekyll-original` branch. Key information:
+| Usage | Light | Dark |
+|---|---|---|
+| Text | `#101010` | `#F5F5F5` |
+| Link | `#059669` | `#34D399` |
+| Accent | `#154D40` | `#267860` |
 
-- **Profile**: Sungho Park, Ph.D. student at Data Systems Lab @ POSTECH
-- **Email**: shpark@dblab.postech.ac.kr
-- **Research Focus**: Agentic AI, Multi-modal QA, Neural Information Retrieval
-
-### Publications to migrate to Notion:
-1. **SPARTA** (2025, Submitted) - Tree-Structured Multi-hop QA
-2. **SAFE** (EMNLP 2025) - Knowledge Graph Querying
-3. **HELIOS** (ACL 2025) - Table-Text Retrieval
-4. **KDD Cup 2024** - RAG Framework (Winner)
-
-## Credits
-
-Built with [Webtrotion](https://github.com/nerdymomocat-templates/webtrotion-astro-notion-cms-website-blog) by [Nerdy Momo Cat](https://ko-fi.com/nerdymomocat).
-
-## License
-
-[MIT License](LICENSE)
+Defined in `src/styles/global.css`.

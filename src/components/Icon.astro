@@ -1,0 +1,14 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { ICON_PATHS, type IconName } from "@/lib/icons";
+
+interface Props extends HTMLAttributes<"svg"> {
+	name: IconName;
+}
+
+const { name, fill = "currentColor", ...rest } = Astro.props;
+---
+
+<svg viewBox="0 0 24 24" aria-hidden={rest["aria-label"] ? undefined : "true"} {...rest}>
+	<path d={ICON_PATHS[name]} fill={fill}></path>
+</svg>

@@ -1,0 +1,44 @@
+---
+import { render } from "astro:content";
+import Icon from "@/components/Icon.astro";
+import { formatDate, type NewsItem } from "@/lib/content";
+
+interface Props {
+	item: NewsItem;
+}
+
+const { item } = Astro.props;
+const { date, title, link } = item.data;
+const { Content } = await render(item);
+const external = link?.startsWith("http");
+---
+
+<div class="news-item">
+	<span class="shrink-0" aria-hidden="true">📢</span>
+	<div class="min-w-0 flex-1">
+		<p class="flex items-center gap-1">
+			<Icon name="calendar" class="h-5 w-5" />
+			<time datetime={date.toISOString()}>{formatDate(date)}</time>
+		</p>
+		<p class="mt-1">
+			{
+				link ? (
+					<a
+						href={link}
+						class="text-link inline-flex items-start gap-1 hover:underline"
+						target={external ? "_blank" : undefined}
+						rel={external ? "noopener noreferrer" : undefined}
+					>
+						<Icon name="document" class="mt-0.5 h-4 w-4 shrink-0" />
+						<span>{title}</span>
+					</a>
+				) : (
+					<strong class="font-semibold">{title}</strong>
+				)
+			}
+		</p>
+		<div class="prose">
+			<Content />
+		</div>
+	</div>
+</div>

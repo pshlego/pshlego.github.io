@@ -1,46 +1,25 @@
 ---
-import PageLayout from "@/layouts/Base.astro";
-import { getNavLink } from "@/lib/blog-helpers";
-import { getAllTagsWithCounts } from "@/lib/notion/client";
-import { getNotionColorToTailwindColor } from "@/utils/style-helpers";
-import { slugify } from "@/utils";
-import TagDescPopover from "@/components/popover/TagDescPopover.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getAllTags, tagColorClass, tagPath } from "@/lib/content";
 
-const allTags = await getAllTagsWithCounts();
-
-const meta = {
-	title: "All Tags",
-	description: "A list of all the topics I've written about in my posts",
-	ogImage: "/og-image/tagsindex---index.png",
-};
+const tags = await getAllTags();
 ---
 
-<PageLayout meta={meta}>
-	<h1 class="title text-accent-2 mb-6">Tags</h1>
-	<div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
+<BaseLayout title="All Tags">
+	<h1 class="title mb-6">Tags</h1>
+	<ul class="flex flex-wrap gap-2 lg:w-4/5">
 		{
-			allTags.map((tag) => (
-				<div class="flex items-center">
+			tags.map(({ name, count }) => (
+				<li>
 					<a
-						class="inline-block"
-						href={getNavLink("/tags/" + slugify(tag.name) + "/")}
-						title={`View posts with the tag: ${tag.name}`}
-						aria-label={`View posts with the tag: ${tag.name}`}
-						data-astro-prefetch
+						href={tagPath(name)}
+						class:list={["tag-chip gap-1.5 px-2 text-base", tagColorClass(name)]}
 					>
-						<span
-							class={`rounded-lg px-2 py-1 ${getNotionColorToTailwindColor(
-								tag.color + "-background",
-								true,
-							)} `}
-						>
-							{tag.name}
-							<span class="count-badge">{tag.count}</span>
-						</span>
+						{name}
+						<span class="text-xs opacity-60">{count}</span>
 					</a>
-					{tag.description && <TagDescPopover description={tag.description} />}
-				</div>
+				</li>
 			))
 		}
-	</div>
-</PageLayout>
+	</ul>
+</BaseLayout>
