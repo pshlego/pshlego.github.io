@@ -7,5 +7,6 @@ authors:
 venue: NeurIPS 2026
 date: 2026-09-25
 tags: [Multihop QA]
+image: ../../assets/publications/hi-q.png
 links: {}
 ---

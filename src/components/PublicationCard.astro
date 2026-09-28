@@ -16,6 +16,8 @@ const buttons = [
 	{ key: "project", label: "Project", href: links.project },
 	{ key: "code", label: "Code", href: links.code },
 ].filter((b) => b.href);
+// Wide overview figures would lose most of their content to cropping, so show them whole.
+const wideImage = image && image.width / image.height > 1.6;
 ---
 
 <article class="publication-card">
@@ -28,7 +30,10 @@ const buttons = [
 						alt=""
 						widths={[300, 600]}
 						sizes="(max-width: 768px) 100vw, 300px"
-						class="h-32 w-full rounded-lg object-cover md:h-40"
+						class:list={[
+							"h-32 w-full rounded-lg md:h-40",
+							wideImage ? "bg-white object-contain" : "object-cover",
+						]}
 					/>
 				) : (
 					<div class="bg-accent/10 text-accent-2 flex h-32 w-full items-center justify-center rounded-lg px-3 text-center text-2xl font-bold md:h-40">

@@ -7,5 +7,6 @@ authors:
 venue: EMNLP 2026 | Main Conference
 date: 2026-08-21
 tags: [Table-Text QA]
+image: ../../assets/publications/trace.png
 links: {}
 ---

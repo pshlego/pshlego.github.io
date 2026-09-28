@@ -14,6 +14,7 @@ authors:
 venue: NeurIPS 2026
 date: 2026-09-25
 tags: [Agents]
+image: ../../assets/publications/autosaddler.png
 links: {}
 selected: 1
 ---
