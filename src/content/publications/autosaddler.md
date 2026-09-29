@@ -15,6 +15,9 @@ venue: NeurIPS 2026
 date: 2026-09-25
 tags: [Agents]
 image: ../../assets/publications/autosaddler.png
-links: {}
+links:
+  pdf: https://arxiv.org/pdf/2608.23041
+  project: https://autosaddler-projectpage.github.io/
+  code: https://github.com/microsoft/AutoSaddler
 selected: 1
 ---
