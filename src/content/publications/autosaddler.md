@@ -19,5 +19,5 @@ links:
   pdf: https://arxiv.org/pdf/2608.23041
   project: https://autosaddler-projectpage.github.io/
   code: https://github.com/microsoft/AutoSaddler
-selected: 1
+selected: 2
 ---
