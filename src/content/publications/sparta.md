@@ -11,5 +11,5 @@ image: ../../assets/publications/sparta.png
 links:
   pdf: https://openreview.net/forum?id=8KE9qvKhM4
   project: https://sparta-projectpage.github.io/
-selected: 2
+selected: 3
 ---

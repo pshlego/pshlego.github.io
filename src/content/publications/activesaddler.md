@@ -20,4 +20,5 @@ links:
   pdf: https://arxiv.org/pdf/2610.00906
   project: https://autosaddler-projectpage.github.io/activesaddler/
   code: https://github.com/microsoft/AutoSaddler/tree/feat/activesaddler
+selected: 2
 ---
