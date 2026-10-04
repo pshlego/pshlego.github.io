@@ -12,7 +12,7 @@ authors:
   - Elsie Nallipogu
   - Qingwei Lin
   - Victor Rühle
-venue: arXiv preprint
+venue: arXiv preprint, 2026
 date: 2026-10-01
 tags: [Agents]
 image: ../../assets/publications/activesaddler.png
